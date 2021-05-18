@@ -245,7 +245,7 @@ ON TOKEN CHANGE/CREATE
             var scale = Pageon.get("scale_number") / 10;
             if(state.HealthColors.auraTint === true) {
                 if(obj.get('aura1_color') == markerColor && update === "YES") {
-                    obj.set({'aura1_color': "transparent",'aura2_color': "transparent",});
+                    obj.set({'aura1_color': "transparent",});
                 }
                 obj.set({'tint_color': markerColor,});
             }
@@ -255,9 +255,7 @@ ON TOKEN CHANGE/CREATE
                 }
                 obj.set({
                     'aura1_radius': sizeSet * scale * 1.8,
-                    'aura2_radius': sizeSet * scale * 0.1,
                     'aura1_color': markerColor,
-                    'aura2_color': pColor,
                     'showplayers_aura1': true,
                     'showplayers_aura2': true,
                 });
@@ -266,7 +264,7 @@ ON TOKEN CHANGE/CREATE
     //REMOVE ALL------------
         SetAuraNone = function (obj) {
             if(state.HealthColors.auraTint === true) obj.set({'tint_color': "transparent",});
-            else obj.set({'aura1_color': "transparent",'aura2_color': "transparent",});
+            else obj.set({'aura1_color': "transparent",});
         },
     //FORCE ALL TOKEN UPDATE------------
         MenuForceUpdate = function(){
@@ -406,8 +404,8 @@ ON TOKEN CHANGE/CREATE
     //SPAWN FX------------
         SpawnFX = function (Scale,HitSize,left,top,FX,pageid) {
             _.defaults(FX, {
-                "maxParticles": 100,
-                "duration": 100,
+                "maxParticles": 120,
+                "duration": 150,
                 "size": 100,
                 "sizeRandom": 100,
                 "lifeSpan": 100,
